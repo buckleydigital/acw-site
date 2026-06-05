@@ -1253,7 +1253,7 @@ window.submitForm = async function() {
     is_decision_maker:           formData.is_decision_maker,
     ownership_type:              formData.ownership_type || null,
     purchase_timeline:           formData.purchase_timeline || null,
-    bill_range:                  formData.ac_type || null,
+    ac_type:                     formData.ac_type || null,
     matched_buyer:               formData.matched_buyer || null,
     consent_text:                consentText
   };
@@ -1312,7 +1312,7 @@ window.submitForm = async function() {
           source:            leadPayload.source,
           is_decision_maker: leadPayload.is_decision_maker,
           purchase_timeline: leadPayload.purchase_timeline,
-          bill_range:        leadPayload.bill_range,
+          ac_type:           leadPayload.ac_type,
           ownership_type:    leadPayload.ownership_type,
           matched_buyer:     leadPayload.matched_buyer,
           consent_text:      leadPayload.consent_text,
