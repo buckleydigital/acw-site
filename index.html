@@ -1258,10 +1258,6 @@ window.submitForm = async function() {
     consent_text:                consentText
   };
 
-  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k) {
-    if (formData[k]) leadPayload[k] = formData[k];
-  });
-
   if (typeof fbq !== 'undefined') {
     fbq('track', 'Lead', { content_name:'AC Quote AU', content_category:'Air Conditioning', value:0, currency:'AUD' });
   }
