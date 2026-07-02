@@ -774,7 +774,7 @@ footer{background:#0f1b3d;padding:40px 6vw 28px;position:relative;z-index:1}
           <div class="consent-wrap">
             <input type="checkbox" id="consent" onchange="validateContact()">
             <label for="consent">
-              I agree to be contacted by <strong id="consentBuyerName">a pre-vetted ARCtick-certified AC installer</strong> regarding my obligation-free installation quote. My details will be shared only with my matched installer. I've read the <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms">Terms of Use</a>.
+              I agree to be contacted by <strong id="consentBuyerName"></strong> regarding my obligation-free installation quote. My details will be shared only with my matched installer. I've read the <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms">Terms of Use</a>.
             </label>
           </div>
 
@@ -1179,7 +1179,7 @@ window.submitPostcode = async function() {
     formData.matched_buyer = null;
 
     document.getElementById('buyerName').textContent        = 'a pre-vetted local AC installer';
-    document.getElementById('consentBuyerName').textContent = 'a pre-vetted ARCtick-certified AC installer';
+    document.getElementById('consentBuyerName').textContent = formData.matched_buyer || '';
 
     setTimeout(function() { goToStep(4, 5); }, 280);
     btn.textContent = 'Find My Local AC Installer →';
@@ -1238,7 +1238,7 @@ window.submitForm = async function() {
   var now = new Date().toISOString();
 
   var consentText = 'I agree to be contacted by ' +
-    (formData.matched_buyer || 'a pre-vetted ARCtick-certified AC installer') +
+    formData.matched_buyer +
     ' regarding my obligation-free AC installation quote. My details will be shared only with my matched installer.';
 
   var leadPayload = {
